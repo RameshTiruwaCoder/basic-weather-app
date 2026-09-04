@@ -37,7 +37,7 @@ function seperateData(obj) {
     wind = obj['current']['wind_mph'];
     cloud = obj['current']['cloud'];
     cityName = obj['location']['name'];
-    icon = obj['current']['condition']['icon'];
+    icon = `https:${obj['current']['condition']['icon']}`;
 }
 
 function addToFrontEnd() {
