@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: #EAF6FF;
+}
+
+header {
+    width: 100vw;
+    margin: 0 auto;
+    height: 60px;
+    background-color: rgba(0, 85, 255, 0.507);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 150px;
+    border-radius: 5px;
+}
+
+.logo {
+    font-size: 45px;
+    color: white;
+    font-weight: bolder;
+}
+
+header input{
+    height: 30px;
+    width: 200px;
+    font-size: 1.05rem;
+    padding-left: 10px;
+    border-radius: 4px;
+    border: none;
+}
+
+header i {
+    font-size: 21px;
+}
+
+header button {
+    border: none;
+    border-radius: 4px;
+    background-color: skyblue;
+    height: 30px;
+    padding: 0px 10px;
+    transition: .2s;
+}
+
+header button:hover {
+    background-color: aqua;
+}
+
+header button:active{ 
+    background-color: blue;
+}
+
+main {
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: white;
+    max-width: 400px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.first_Cont {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+}
+
+.first_Cont h2 {
+    font-size: 35px;
+}
+
+.first_Cont img {
+    height: 80px;
+}
+
+.last_cont h3 {
+    padding: 10px;
+    font-weight: 550;
+}
+
+@media (max-width: 800px) {
+    header {
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+}
