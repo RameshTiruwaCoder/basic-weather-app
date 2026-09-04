@@ -1,6 +1,5 @@
 const btn = document.querySelector('#searchBTN');
-let data;
-let tempC,tempF,humidity,wind,cloud,cityName;
+let tempC,tempF,humidity,wind,cloud,cityName,icon,data;
 
 function fetchData(place = 'Kathmandu') {
     let api_key = "617584e629e64c8d9f725934260309";
@@ -38,6 +37,7 @@ function seperateData(obj) {
     wind = obj['current']['wind_mph'];
     cloud = obj['current']['cloud'];
     cityName = obj['location']['name'];
+    icon = obj['current']['condition']['icon'];
 }
 
 function addToFrontEnd() {
@@ -45,6 +45,7 @@ function addToFrontEnd() {
     document.getElementById("firstHeadThree").innerHTML = `Temperature: ${tempC}°C`;
     document.getElementById("secondHeadThree").innerHTML = `Temperature: ${tempF}°F`;
     document.getElementById("thirdHeadThree").innerHTML = `Humidity: ${humidity}%`;
-    document.getElementById("fourHeadThree").innerHTML = `Wind: ${wind}mpH`;
+    document.getElementById("fourHeadThree").innerHTML = `Wind: ${wind}mph`;
+    document.getElementById("weatherIMG").setAttribute('src', icon);
     document.getElementById("fiveHeadThree").innerHTML = `Cloud: ${cloud}%`;
 }
