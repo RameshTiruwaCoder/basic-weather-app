@@ -1,6 +1,6 @@
 const btn = document.querySelector('#searchBTN');
 let data;
-let tempC,tempF,humidity,wind,cloud;
+let tempC,tempF,humidity,wind,cloud,cityName;
 
 function fetchData(place = 'Kathmandu') {
     let api_key = "617584e629e64c8d9f725934260309";
@@ -13,20 +13,22 @@ function fetchData(place = 'Kathmandu') {
         })
         .then(result => {
             data = result;
+            console.log(result);
             seperateData(data);
             addToFrontEnd();
         })
         .catch(err => {
-            console.log('Error Occured' + err);
+            alert("Enter place name correctly");
         });
     } catch {
-        alert('Try again later');
+        alert('Try again later with proper name');
     }
 }
 
 btn.addEventListener('click', e=> {
     const place = document.getElementById("head_search");
     fetchData(`${place.value}`);
+    place.value = "";
 });
 
 function seperateData(obj) {
@@ -35,12 +37,14 @@ function seperateData(obj) {
     humidity = obj['current']['humidity'];
     wind = obj['current']['wind_mph'];
     cloud = obj['current']['cloud'];
+    cityName = obj['location']['name'];
 }
 
 function addToFrontEnd() {
-    document.getElementById("firstHeadThree").innerHTML = `Temperature: ${tempC}&#8451`;
-    document.getElementById("secondHeadThree").innerHTML = `Temperature: ${tempF}&#847`;
+    document.getElementById("cityPlaceHolder").innerText = `${cityName}`;
+    document.getElementById("firstHeadThree").innerHTML = `Temperature: ${tempC}°C`;
+    document.getElementById("secondHeadThree").innerHTML = `Temperature: ${tempF}°F`;
     document.getElementById("thirdHeadThree").innerHTML = `Humidity: ${humidity}%`;
-    document.getElementById("fourHeadThree").innerHTML = `Wind: ${wind}km/h`;
+    document.getElementById("fourHeadThree").innerHTML = `Wind: ${wind}mpH`;
     document.getElementById("fiveHeadThree").innerHTML = `Cloud: ${cloud}%`;
 }
