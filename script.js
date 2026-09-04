@@ -28,7 +28,7 @@ function fetchData(place = 'Kathmandu') {
 
 btn.addEventListener('click', e=> {
     const place = document.getElementById("head_search");
-    fetchData(`${place.value}`);
+    fetchData(`${(place.value).trim()}`);
     place.value = "";
 });
 
