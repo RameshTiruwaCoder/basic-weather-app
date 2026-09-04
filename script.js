@@ -1,6 +1,8 @@
 const btn = document.querySelector('#searchBTN');
 let tempC,tempF,humidity,wind,cloud,cityName,icon,data;
 
+fetchData();
+
 function fetchData(place = 'Kathmandu') {
     let api_key = "617584e629e64c8d9f725934260309";
     let url =  `https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${encodeURIComponent(place)}`
